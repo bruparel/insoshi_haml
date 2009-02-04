@@ -1,0 +1,51 @@
+%h2
+  %span.fn.n
+    = @person.name
+  's Profile
+- if current_person?(@person) || current_person.admin?
+  .button_container
+- if current_person.admin?
+  - activity = activated_status(@person)
+  = link_to activity, admin_person_path(@person, :task => "deactivated"), :method => :put
+  = "|" if current_person?(@person)
+- if current_person?(@person)
+  = link_to "Edit profile", edit_person_path(@person)
+  |
+  = link_to "Change photo", @person.galleries.first
+- if current_person?(@person) || current_person.admin?
+  .clear
+- if admin? and not @person.active?
+  %p.error
+    This person is not active
+- if current_person?(@person) && current_person.description.blank?
+  .error
+    Your description is blank.
+    = link_to "Click here to add a description",  edit_person_path(@person)
+.toolbox
+  = image_tag @person.main_photo, :class => "profile-image photo", :alt => h(@person.name)
+  - unless current_person?(@person)
+    %h3= @person.name
+    %ul.tools
+      - if logged_in?
+        - unless Connection.exists?(@person, current_person)
+          %li
+            = link_to "Request Connection", person_connections_path(@person), :method => :post
+      - if Connection.connected?(@person, current_person)
+        %li
+          You're connected!
+          = link_to image_tag('icons/user_delete.png'), connection_path(Connection.conn(current_person, @person)),  :method => :delete, :title => "Remove connection", :confirm => "Are you sure you want to remove this connection?"
+      - if Connection.pending?(current_person, @person)
+        %li
+          = h @person.name
+          has contacted you
+          %br/
+          (
+          = link_to "respond to contact request",  edit_connection_path(Connection.conn(current_person, @person))
+          )
+      - if Connection.pending?(@person, current_person)
+        %li
+          You've contacted
+          = h @person.name
+      %li
+        = email_link(@person)
+= display @person.description

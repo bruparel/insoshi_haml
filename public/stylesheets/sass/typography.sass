@@ -1,0 +1,474 @@
+body
+  :font-family Helvetica, Arial, Univers, Tahoma, sans-serif
+  :font-size 1em
+  :line-height 1.05em
+
+  &.blog .comments p, &.forum .reply p
+    :font-size 12px
+
+  &.single-col .col1 form input
+    :width 312px
+
+    &.checkbox
+      :display inline
+      :width auto
+
+
+p
+  :font-size 14px
+  :line-height 1.4em
+  :display block
+  :margin-bottom 1em
+
+  &.welcome
+    :color #fff
+    :font-size 12px
+
+
+    a
+      :color #fff
+      :text-decoration underline
+
+      &:visited
+        :color #fff
+        :text-decoration underline
+
+  &.meta
+    :font-size 12px
+
+
+li
+  :font-size 14px
+  :line-height 1.4em
+
+  li
+    :font-size 100%
+
+  p
+    :font-size 100%
+
+    &.meta
+      :font-size 12px
+
+  h2
+    :font-size 1em
+
+
+th
+  :font-size 14px
+  :line-height 1.4em
+  :font-weight bold
+  :background #C3D9FF
+  :padding 4px 10px 4px 5px
+
+
+td
+  :font-size 14px
+  :line-height 1.4em
+  :padding 4px 10px 4px 5px
+
+
+ul
+  :display block
+  :margin-bottom 1em
+
+  li
+    :background url(/images/bullet.png) top left no-repeat
+    :border 0
+    :margin 0 0 .5em 0
+    :padding-left 24px
+
+
+ol
+  :display block
+  :margin-bottom 1em
+
+  li
+    :list-style decimal
+    :margin-left 1.5em
+
+
+blockquote
+  :display block
+  :margin-bottom 1em
+  :font-family Georgia, "Times New Roman", Times, serif
+  :color #666666
+  :background #ececec
+  :border 1px solid #ccc
+  :padding 12px
+  :margin 1em
+  :font-style italic
+
+
+h2
+  :display block
+  :margin-bottom 1em
+  :background url(/images/yellow-grad.jpg) 30px 10px repeat-x
+  :border-bottom 1px solid #ccc
+  :color #069
+  :clear both
+  :font-family Georgia, "Times New Roman", Times, serif
+  :font-size 22px
+  :font-weight normal
+  :line-height 1.4em
+  :margin-top 24px
+  :padding-left 6px
+
+  a
+    :font-weight normal
+
+
+h3
+  :display block
+  :margin-bottom 1em
+  :font-family Georgia, "Times New Roman", Times, serif
+  :font-size 20px
+  :font-weight normal
+
+  a
+    :font-weight normal
+
+  &.page-title
+    :display none
+
+  &.blankslate
+
+h4
+  :display block
+  :margin-bottom 1em
+  :border-bottom 1px solid #eee
+  :clear both
+  :font-family Georgia, "Times New Roman", Times, serif
+  :font-size 1.3em
+  :font-weight normal
+  :line-height 1.4em
+  :width 100%
+
+
+h5
+  :display block
+  :margin-bottom 1em
+  :font-size 12px
+  :font-weight bold
+
+
+h6
+  :display block
+  :margin-bottom 1em
+  :font-size 12px
+  :font-weight bold
+  :font-style italic
+
+
+code
+  :font-family "Courier New", Courier, monospace
+  :font-size 1em
+
+
+pre
+  :border 1px solid #ccc
+  :background #efefef
+  :margin 1em 0
+  :padding 1em
+
+
+#content
+  a
+    &:link, &:visited
+      :font-weight bold
+      :text-decoration none
+
+  div li.more
+    :background none
+    :border none
+    :clear both
+    :float left
+    :font-size 12px
+    :text-align right
+    :width 100%
+
+    a
+      :margin-right 4px
+
+
+a
+  &:link, &:visited
+    :color #006699
+    :font-weight bold
+    :text-decoration none
+
+  &.show-follow:visited
+    :color #4A70B1
+    :text-decoration none
+
+
+#footer p
+  :font-size 12px
+  :text-align center
+
+
+.meta
+  :color #aaa
+  :font-size 12px
+  :line-height 1.8em
+
+
+.label
+  :font-weight bold
+
+
+.success
+  :border 1px solid #FFCC66
+  :background-color #FFFFCC
+  :font-size 12px
+  :padding 6px
+  :padding .8em
+  :margin-bottom 1em
+  :border 2px solid #ddd
+  :margin-top 1em
+  :background #E6EFC2
+  :color #264409
+  :border-color #C6D880
+
+
+.notice
+  :border 1px solid #FFCC66
+  :background-color #FFFFCC
+  :font-size 12px
+  :padding 6px
+  :padding .8em
+  :margin-bottom 1em
+  :border 2px solid #ddd
+  :margin-top 1em
+  :background #FFF6BF
+  :color #514721
+  :border-color #FFD324
+
+
+.error
+  :border 1px solid #FFCC66
+  :background-color #FFFFCC
+  :font-size 12px
+  :padding 6px
+  :padding .8em
+  :margin-bottom 1em
+  :border 2px solid #ddd
+  :margin-top 1em
+  :background #FBE3E4
+  :color #8a1f11
+  :border-color #FBC2C4
+
+
+.errorExplanation
+  :border 1px solid #FFCC66
+  :background-color #FFFFCC
+  :margin-bottom 1em
+  :padding 1em
+
+  h2
+    :background 0
+    :border 0
+    :font-size 1.2em
+    :margin-top 0
+    :padding 0
+
+
+.pagination
+  :font-size 12px
+  :padding-bottom 12px
+
+
+form
+  :border-bottom 1px solid #ccc
+  :padding-bottom 1em
+  :margin-bottom 2em
+
+  a.add-recipient
+    :position absolute
+    :right 12px
+    :top 30px
+
+
+input
+  :font-family Helvetica, Arial, Univers, sans-serif
+  :font-size 12px
+  :padding 6px 3px
+
+  :margin-bottom 1em
+
+  &.button, &[submit], &[button]
+    :background #e5e5e5
+    :border 1px solid #ccc
+    :clear both
+    :cursor pointer
+    :font-family Helvetica, Arial, Univers, sans-serif
+    :font-size 12px
+    :height 32px
+    :padding 3px 12px
+
+
+textarea
+  :font-family Helvetica, Arial, Univers, sans-serif
+  :font-size 12px
+  :padding 6px 3px
+
+  :line-height 1.4em
+  :margin-bottom 1em
+
+
+label
+  :display block
+  :font-size 14px
+  :font-weight bold
+  :margin-bottom .5em
+
+  &.checkbox
+    :float left
+    :margin-right 12px
+    :width 120px
+
+
+select
+  :margin-bottom 1em
+
+
+button
+  :background #e5e5e5
+  :border 1px solid #ccc
+  :clear both
+  :cursor pointer
+  :font-family Helvetica, Arial, Univers, sans-serif
+  :font-size 12px
+  :height 32px
+  :padding 3px 12px
+
+
+div.button
+  :height 20px
+  :width 72px
+  :float left
+  :margin-right 20px
+
+
+.col1 textarea
+  :width 478px
+
+
+.form_row
+  :position relative
+
+  &.full input
+    :width 478px
+
+
+#frmSearch
+  :border 0
+  :margin 0 0 0 0px
+  :padding 0
+  :position relative
+  :zoom 1
+
+  input.txt
+    :display inline
+    :float left
+    :margin-right 6px
+    :vertical-align middle
+    :width 138px
+
+  #btnSearch.button
+    :display inline
+    :clear none
+    :margin 0
+    :width 72px
+
+
+table
+  :margin-bottom 1.4em
+  :width 100%
+
+
+tr.even td
+  :background #E5ECF9
+
+
+tfoot
+  :font-style italic
+
+
+caption
+  :background #eee
+
+
+em
+  :font-style italic
+
+
+strong
+  :font-weight bold
+
+
+.small
+  :font-size .8em
+  :margin-bottom 1.875em
+  :line-height 1.875em
+
+
+.large
+  :font-size 1.2em
+  :line-height 2.5em
+  :margin-bottom 1.25em
+
+
+.hide
+  :display none
+
+
+.quiet
+  :color #666
+
+
+.loud
+  :color #000
+
+
+.highlight
+  :background #ff0
+
+
+.added
+  :background #060
+  :color #fff
+
+
+.removed
+  :background #900
+  :color #fff
+
+
+.clear
+  :clear both
+
+
+.disabled
+  :color #c0c0c0
+
+
+#new_form_subject
+  form
+    :border-bottom none
+
+  input
+    :width 138px
+    :vertical-align top
+
+  .button
+    :width 72px
+
+
+#photos .button, #tGalleries .button
+  :width 138px
+  :vertical-align top
+
+
+.button_container
+  :margin 10px 0px

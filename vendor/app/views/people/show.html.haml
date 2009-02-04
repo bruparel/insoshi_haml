@@ -1,0 +1,29 @@
+#profile{ :style => "display: none;" }
+  - tabs = TabsRenderer.new(self, :id => "tabCol")
+  - tabs.create('tProfile', 'Profile', :class => "profile vcard") do
+    = render :partial => 'profile'
+    .clear
+  - tabs.create('tWall', 'Wall') do
+    = render :partial => 'wall'
+    .clear
+  - tabs.create('tRecentActivity', 'Recent Activity') do
+    = render :partial => 'recent_activity'
+    .clear
+  - tabs.create('tContacts', 'Contacts') do
+    = render :partial => 'profile_contacts'
+    .clear
+  - tabs.create('tBlog', 'Blog') do
+    = render :partial => 'shared/blog'
+    .clear
+  - tabs.create('tGalleries', 'Galleries') do
+    = render :partial => "shared/galleries", :locals => { :galleries => @galleries }
+    .clear
+  = tabs.render
+
+:javascript
+
+  $(document).ready(function() {
+  // Set up the tabs.
+  $("#tabCol > ul").tabs();
+  $("#profile").show();
+  })

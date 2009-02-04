@@ -1,0 +1,16 @@
+- column_div :type => :primary do
+  %h2
+    New gallery
+  - form_for(@gallery) do |f|
+    .form_row
+      %label{ :for => "title" }
+        Title
+      = f.text_field :title
+    = set_focus_to "gallery_title"
+    .form_row
+      %label{ :for => "description" }
+        Description
+      = f.text_area :description, :rows => 5
+    .form_row
+      = f.submit "Create", :class => "button"
+      = link_to "Cancel", person_galleries_path(current_person)

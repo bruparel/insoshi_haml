@@ -1,0 +1,8 @@
+.minifeed
+  %h2
+    Minifeed
+  %ul.list.activity.small
+    - if logged_in?
+      = render :partial => 'shared/minifeed_item', :collection => current_person.feed
+    - else
+      = render :partial => 'shared/minifeed_item', :collection => Activity.global_feed

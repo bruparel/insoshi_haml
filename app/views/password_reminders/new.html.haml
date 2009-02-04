@@ -1,0 +1,11 @@
+%h2
+  Password reminder
+- form_for :person, :url => password_reminders_path do |form|
+  .field_row
+    %label{ :for => "email" }
+      Enter your email address:
+    %br/
+    = form.text_field :email, :maxlength => Person::MAX_EMAIL
+    = set_focus_to "person_email"
+  .field_row
+    = submit_tag "Send reminder", :class => "submit button"

@@ -1,0 +1,15 @@
+- column_div :type => :primary do
+  %h2
+    Edit gallery
+  - form_for(@gallery) do |f|
+    .form_row
+      = f.label :title
+      = f.text_field :title
+    .form_row
+      = f.label :description
+      %p
+        = formatting_note
+      = f.text_area :description, :rows => 5
+    .form_row
+      = f.submit "Update", :class => 'button'
+      = link_to "Cancel", @gallery, :class => "button"

@@ -1,0 +1,14 @@
+%h2 New forum
+= error_messages_for :forum
+- form_for :forum, :url => admin_forums_path do |f|
+  %p
+    %b Name
+    %br/
+    = f.text_field :name
+  %p
+    %b Description
+    %br/
+    = f.text_area :description
+  %p
+    = f.submit "Create"
+= link_to 'Back', forums_path

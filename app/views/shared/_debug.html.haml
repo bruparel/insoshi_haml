@@ -1,0 +1,15 @@
+%div
+  #debug
+    %a{ :href => '#', :onclick => "jQuery('#env_debug_info').toggle();return false" }
+      env
+    |
+    %a{ :href => '#', :onclick => "jQuery('#request_debug_info').toggle();return false" }
+      request
+    %fieldset#env_debug_info.debug_info{ :style => "display: none" }
+      %legend
+        env
+      = debug(request.env)
+    %fieldset#request_debug_info.debug_info{ :style => "display: none" }
+      %legend
+        request
+      = debug(request)

@@ -1,0 +1,33 @@
+%h2
+  New message
+- column_div :type => :primary do
+  %p
+    = formatting_note
+  = error_messages_for :message
+  - unless @preview.nil?
+    %h3
+      Message preview
+    = display @preview
+  - form_for(:message, :url => person_messages_path(@recipient)) do |f|
+    .form_row.full
+      %label{ :for => "recipient" }
+        To
+      = text_field_tag :recipient, h(@recipient.name)
+      = image_tag "icons/add.gif", :alt => "Add a recipient"
+    .form_row.full
+      %label{ :for => "message_subject" }
+        Subject
+      = f.text_field :subject, :id => "message_subject"
+    .form_row
+      %label{ :for => "message_body" }
+        Message
+      = f.text_area :content, :id => "message_body"
+      - if @message.reply?
+        = f.hidden_field :parent_id
+        = set_focus_to "message_body"
+      - else
+        = set_focus_to "message_subject"
+    .form_row
+      = f.submit "Send", :class => "button", :id => "message_submit"
+      = f.submit "Preview", :class => "button", :id => "preview"
+      = link_to "Cancel", messages_url

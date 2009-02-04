@@ -1,0 +1,15 @@
+- column_div :type => :primary do
+  - if current_person?(@message.sender)
+    - heading = "Message sent to #{h @message.recipient.name}"
+  - else
+    - heading = "Message from #{h @message.sender.name}"
+  %h2
+    = heading
+  = render :partial => 'message_nav'
+  %h3.subject
+    = sanitize @message.subject
+  %ul.list.person
+    - all_messages =  @message.conversation.messages
+    = render :partial => 'full_message', :collection => all_messages, :locals => { :n_messages => all_messages.length }
+- column_div :type => :secondary do
+  = render :partial => 'searches/box'

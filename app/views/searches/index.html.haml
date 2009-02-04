@@ -1,0 +1,14 @@
+- column_div :type => :primary do
+  %h2
+    Search results
+  = will_paginate(@search)
+  - if @results.empty?
+    %h3
+      No results
+  - else
+    %ul.list.people
+      = render :partial => partial(@results), :collection => @results
+  - end
+  = will_paginate(@search)
+- column_div :type => :secondary do
+  = render :partial => 'searches/box'

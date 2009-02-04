@@ -1,0 +1,23 @@
+- column_div :type => :primary do
+  %h2
+    Edit Personal Info
+  = error_messages_for :personal_details
+  - form_for personal_details do |f|
+    .form_row
+      %label{ :for => "email" }
+        Email address
+        %span.small
+          (never made
+          public
+          = ", will be verified" if global_prefs.email_verifications?
+          )
+      = f.text_field :email, :maxlength => Person::MAX_EMAIL
+      = set_focus_to "person_email"
+    .form_row
+      %label{ :for => "name" }
+        Name
+        %span.small
+          (will be displayed)
+      = f.text_field :name, :maxlength => Person::MAX_NAME
+    .form_row
+      = submit_tag 'Sign up', :class => "button"

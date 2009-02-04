@@ -1,0 +1,10 @@
+%li
+  .profile-image
+    = image_link search_result.person, :image => :thumbnail
+    = image_tag "icons/comment.png", :class => "icon"
+  %p
+    In
+    = link_to(h(search_result.topic.name), forum_topic_path(search_result.topic.forum, search_result.topic, :anchor => "post_#{search_result.id}"))
+    \:
+  .forum
+    = display search_result.body

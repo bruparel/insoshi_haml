@@ -1,0 +1,9 @@
+- unless minifeed_item.item.nil?
+  %li
+    .profile-image
+      = image_link minifeed_item.person
+    %p
+      = minifeed_message minifeed_item
+    %p.meta.published
+      = time_ago_in_words minifeed_item.created_at
+      ago

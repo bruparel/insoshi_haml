@@ -1,0 +1,8 @@
+%h2
+  = @person.name
+  's Galleries
+- if current_person?(@person)
+  = link_to "Add Gallery", new_gallery_path
+%ul#gallery_list.grid
+  = render :partial => "shared/gallery", :collection => galleries
+= will_paginate(galleries)

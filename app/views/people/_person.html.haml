@@ -1,0 +1,7 @@
+%li.vcard.person
+  .profile-image
+    = image_link person, :class => "photo", :image => :thumbnail
+  %p
+    = person_link person, :class => "url fn"
+  = display(truncate(person.description, 150), :class => "note")
+  .clear

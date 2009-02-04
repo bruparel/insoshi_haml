@@ -1,0 +1,18 @@
+%table
+  %tr
+    %th
+      Discussion Forum
+  - @topics.each do |topic|
+    - last_post = topic.posts.reverse.first
+    - this_class = cycle("odd", "even")
+    %tr{ :class => "#{this_class}" }
+      %td
+        = topic_link topic
+        %br/
+        %span.quiet.small
+          Last post
+          = time_ago_in_words(last_post.created_at)
+          ago by
+          = person_link last_post.person
+.more
+  = link_to "Go to discussion forum &raquo;", forum_path(topic.forum)

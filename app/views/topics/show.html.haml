@@ -1,0 +1,18 @@
+- column_div :type => :primary, :class => "hentry" do
+  %h2.entry-title
+    = h @topic.name
+  %ul.list.topic.full
+    = render :partial => 'forum_post', :collection => @posts
+  %h2
+    Add Reply
+  %p
+    = formatting_note
+  = error_messages_for :post
+  - form_for :post,
+    - :url => forum_topic_posts_path(@forum, @topic)  do |f|
+    .form_row
+      = f.text_area :body, :rows => 10, :cols => 30
+    .form_row
+      = f.submit "Submit", :class => "button"
+- column_div :type => :secondary do
+  = render :partial => 'shared/minifeed'

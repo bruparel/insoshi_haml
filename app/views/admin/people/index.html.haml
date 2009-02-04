@@ -1,0 +1,8 @@
+- column_div :type => :primary do
+  %h2 People Admin
+  = will_paginate
+  %ul.list.people.admin
+    = render :partial => @people
+  = will_paginate
+- column_div :type => :secondary do
+  = render :partial => 'searches/box'

@@ -1,0 +1,12 @@
+- form_for :post, :url => url, :html => { :method => method, :id => "blogpost" }  do |f|
+  .form_row
+    = f.label :title
+    = f.text_field :title, :size => 40
+  = set_focus_to('post_title')
+  %p
+    = formatting_note
+  .form_row
+    = f.label :body, "Post"
+    = f.text_area :body, :cols => 80, :rows => 20
+  .form_row
+    = f.submit "Save", :class => "button"

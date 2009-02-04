@@ -1,0 +1,31 @@
+!!! Strict
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html;charset=utf-8"}
+    %title
+      = app_name
+    - if @forum
+      = auto_discovery_link_tag(:atom, :action => :show, :format => :atom,  :id => @forum.id )
+    - elsif @feed
+      = auto_discovery_link_tag(:atom, :action => :index,  :format => :atom )
+    = stylesheet_link_tag "default"
+    = stylesheet_link_tag "jquery-flora.tabs.css", "jquery.tooltip.css",  "facebox.css"
+    = javascript_include_tag "jquery.js", "jquery-ui.js", "jquery-fx.js",  "jrails.js"
+    = javascript_include_tag "jquery.collection-min.js",  "jquery.bgiframe.js", "jquery.tooltip.pack.js", "jquery.livequery.js", "facebox.js", "application.js"
+    = javascript_include_tag :fckeditor
+    = #calendar_date_select_includes :default
+    = stylesheet_link_tag 'calendar/blue/style'
+  %body{ :class => "#{@body}" }
+    = render :partial => 'shared/header'
+    #wrap
+      #content
+        - if global_prefs.demo?
+          %p.error{ :style => "font-weight: bold;" }
+            This is a demonstration site.
+            Data may be modified or removed without warning.
+        - flash.each do |key, msg|
+          = content_tag :p, msg, :class => "flash #{key}"
+        = yield
+      = render :partial => 'shared/footer'
+      = render :partial => 'shared/debug' if development?
+    = global_prefs.analytics

@@ -1,0 +1,29 @@
+%h2
+  Editing topic (
+  = link_to 'Show', forum_topic_path(@forum, @topic)
+  )
+= error_messages_for :topic
+- form_for :topic, :url => forum_topic_path(@forum, @topic), :html => { :method => :put} do |f|
+  .prefItem
+    .prefLabel
+      Forum
+    .prefValue
+      = f.text_field :forum_id
+  .prefItem
+    .prefLabel
+      Person
+    .prefValue
+      = f.text_field :person_id
+  .prefItem
+    .prefLabel
+      Name
+    .prefValue
+      = f.text_field :name
+  .prefItem
+    .prefLabel
+      Posts count
+    .prefValue
+      = f.text_field :forum_posts_count
+  %div
+    = f.submit "Update", :class => "button"
+    = f.submit 'Cancel', :class => 'button', :id => "cancel"

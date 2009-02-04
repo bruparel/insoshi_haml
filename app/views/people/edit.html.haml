@@ -1,0 +1,54 @@
+- column_div :type => :primary do
+  %h2 Edit Your Profile
+  #profile_edit
+    = error_messages_for :person
+    - form_for @person do |f|
+      .form_row
+        = f.label :name
+        = f.text_field :name, :maxlength => Person::MAX_NAME
+      .form_row
+        = f.label :email
+        = f.text_field :email, :maxlength => Person::MAX_EMAIL
+      %h3 Public Description
+      %p.meta This is what other users of the system see as your description.
+      .form_row
+        = fckeditor_textarea("person", :description,  :toolbarSet => 'InsoshiBase', :width => '100%', :height => RICH_TEXT_HEIGHT)
+      %br/
+      - if global_prefs.email_notifications?
+        %h3 Email Notification Preferences
+        %p.meta Get emails when these events occur
+        .form_row
+          %p
+            = f.label :connection_notifications, 'Connections',  :class => "checkbox"
+            = f.check_box :connection_notifications, {}, 'true', 'false'
+          %p
+            = f.label :message_notifications, 'Messages',  :class => "checkbox"
+            = f.check_box :message_notifications, {}, 'true', 'false'
+          %p
+            = f.label :wall_comment_notifications, 'Wall Comments',  :class => "checkbox"
+            = f.check_box :wall_comment_notifications, {}, 'true', 'false'
+          %p
+            = f.label :blog_comment_notifications, 'Blog Comments',  :class => "checkbox"
+            = f.check_box :blog_comment_notifications, {}, 'true', 'false'
+      .form_row
+        = f.submit "Update", :class => "button"
+        = link_to "Cancel", @person
+      %input{ :name => "type", :type => "hidden", :value => "info_edit" }
+- column_div :type => :secondary do
+  %h2 Change Your Password
+  - form_for @person, :html => { :id => "change_password" } do |f|
+    .form_row
+      %label{ :for => "password" }
+        Current Password
+      = f.password_field :verify_password, :size => 34, :maxlength => Person::MAX_PASSWORD
+    .form_row
+      %label{ :for => "password" }
+        New Password
+      = f.password_field :new_password, :size => 34, :maxlength => Person::MAX_PASSWORD
+    .form_row
+      %label{ :for => "password_confirmation" }
+        Confirm Password
+      = f.password_field :password_confirmation,  :size => 34, :maxlength => Person::MAX_PASSWORD, :value => ""
+    .form_row
+      = submit_tag 'Change password', :class => "button"
+    %input{ :name => "type", :type => "hidden", :value => "password_edit" }

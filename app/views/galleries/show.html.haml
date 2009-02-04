@@ -1,0 +1,26 @@
+#photos
+  %h2
+    Photos in
+    = h(@gallery.title)
+    Gallery
+  - unless @gallery.description.nil?
+    .gallery-description
+      - unless @gallery.description.blank?
+        %p
+          %strong
+            Description:
+          = @gallery.description
+  %p
+    - if current_person?(@gallery.person)
+      = link_to "Add photo", new_gallery_photo_path(@gallery)
+      |
+      = link_to "Edit gallery", edit_gallery_path
+      |
+    = link_to "All galleries", person_path(@gallery.person, :anchor => 'tGalleries')
+  - if @photos.empty?
+    %h3
+      No photos (yet)
+  - else
+    %ul
+      = render :partial=>"shared/photo", :collection => @photos
+    = will_paginate(@photos)

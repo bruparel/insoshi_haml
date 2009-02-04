@@ -1,0 +1,34 @@
+- column_div :type => :primary do
+  - if global_prefs.app_name.blank?
+    %h2 Sign up
+  - else
+    %h2
+      Sign up for
+      = global_prefs.app_name
+  = error_messages_for :person
+  - form_for @person do |f|
+    .form_row
+      %label{ :for => "email" }
+        Email address
+        %span.small
+          (never made public
+          = ", will be verified" if global_prefs.email_verifications?
+          )
+      = f.text_field :email, :maxlength => Person::MAX_EMAIL
+      = set_focus_to "person_email"
+    .form_row
+      %label{ :for => "name" }
+        Name
+        %span.small
+          (will be displayed)
+      = f.text_field :name, :maxlength => Person::MAX_NAME
+    .form_row
+      %label{ :for => "password" }
+        Password
+      = f.password_field :password, :maxlength => Person::MAX_PASSWORD
+    .form_row
+      %label{ :for => "password_confirmation" }
+        Confirm Password
+      = f.password_field :password_confirmation,  :maxlength => Person::MAX_PASSWORD, :value => ""
+    .form_row
+      = submit_tag 'Sign up', :class => "button"

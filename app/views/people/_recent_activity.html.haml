@@ -1,0 +1,12 @@
+- if @person.recent_activity.empty?
+  %h2 No recent activity
+- else
+  %h2= "#{@person.name}'s Recent Activity"
+  - unless @person.last_logged_in_at.nil? or current_person?(@person)
+    %p.meta
+      = @person.name
+      last logged in
+      = time_ago_in_words(@person.last_logged_in_at)
+      ago
+  %ul.list.activity
+    = render :partial => 'shared/activity', :collection => @person.recent_activity, :locals => { :destroy => current_person?(@person), :recent => true }

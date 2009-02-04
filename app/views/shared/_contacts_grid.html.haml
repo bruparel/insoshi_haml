@@ -1,0 +1,5 @@
+%ul.grid.contacts.medium
+  - contacts.each do |contact|
+    %li.vcard.contact
+      %span
+        = image_link contact, :image_options => { :class => "photo" }, :link_options => { :class => "url" }, :vcard => true, :image => :bounded_icon

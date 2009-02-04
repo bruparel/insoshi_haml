@@ -1,0 +1,14 @@
+- column_div :type => :primary, :id => 'photos' do
+- if !@photos.empty?
+  %h2
+    = current_person.name
+    's Photos
+  .button_container
+    .button
+      = link_to "Add Photo", new_photo_path()
+    .clear
+  %ul
+    = render :partial=>"shared/photo", :collection => @photos
+- else
+  %h2
+    No Photos to Show

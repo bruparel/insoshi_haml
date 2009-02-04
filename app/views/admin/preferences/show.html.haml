@@ -1,0 +1,36 @@
+- column_div :type => :primary do
+  %h2 Global Preferences
+  .button
+    = link_to 'Edit', edit_admin_preference_path(@preferences)
+  .prefItem
+    .prefLabel Application name
+    .prefValue= h @preferences.app_name
+  .prefItem
+    .prefLabel Email domain
+    .prefValue= h @preferences.domain
+  .prefItem
+    .prefLabel Server name
+    .prefValue= h @preferences.server_name
+  .prefItem
+    .prefLabel Smtp server
+    .prefValue= h @preferences.smtp_server
+  .prefItem
+    .prefLabel Email notifications
+    .prefValue= h @preferences.email_notifications
+  .prefItem
+    .prefLabel Email verifications
+    .prefValue= h @preferences.email_verifications
+  .prefItem
+    .prefLabel Demo site
+    .prefValue= h @preferences.demo
+  .prefItem
+    .prefLabel Whitelist
+    .prefValue= h @preferences.whitelist
+  .prefItem
+    %b About text (nonblank text will lead to an 'about' link)
+    .prefAbout
+      = display @preferences.about
+  .prefItem
+    %b Analytics (will be inserted just before the = h("</body>")tag)
+    - unless @preferences.analytics.blank?
+      %pre= h @preferences.analytics

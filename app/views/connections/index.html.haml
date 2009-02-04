@@ -1,0 +1,15 @@
+- column_div :type => :primary do
+  %h2
+    Contacts for
+    = h @person.name
+  - if @person.connections.count > Person::MAX_DEFAULT_CONTACTS
+    = will_paginate @contacts
+  - unless @contacts.empty?
+    = render :partial => 'shared/contacts_grid', :locals => {:contacts => @contacts}
+    - if @person.connections.count > Person::MAX_DEFAULT_CONTACTS
+      = will_paginate @contacts
+  - else
+    %h3
+      No contacts (yet)
+- column_div :type => :secondary do
+  = render :partial => 'searches/box'

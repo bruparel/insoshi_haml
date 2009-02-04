@@ -1,0 +1,13 @@
+development:
+  adapter: mysql
+  database: insoshi_development
+  username: root
+  password: 
+  timeout: 5000
+  
+test:
+  adapter: mysql
+  database: insoshi_test
+  username: root
+  password: 
+  timeout: 5000

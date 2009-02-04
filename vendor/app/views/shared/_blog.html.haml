@@ -1,0 +1,13 @@
+%h2
+  = h @blog.person.name
+  's Blog
+- if current_person?(@blog.person)
+  %p
+    = link_to "New blog post", new_blog_post_path(@blog)
+- if @posts.empty?
+  %h3.blankslate
+    No blog posts (yet)
+- else
+  %ul.list.blog.full
+    = render :partial => 'posts/blog_post', :collection => @posts
+= will_paginate(@posts)

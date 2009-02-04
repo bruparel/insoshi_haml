@@ -1,0 +1,27 @@
+%h1
+  New comment
+= error_messages_for :comment
+- form_for(@comment) do |f|
+  %p
+    %b
+      Person
+    %br/
+    = f.text_field :person_id
+  %p
+    %b
+      Blog
+    %br/
+    = f.text_field :blog_id
+  %p
+    %b
+      Body
+    %br/
+    = f.text_area :body
+  %p
+    %b
+      Type
+    %br/
+    = f.text_field :type
+  %p
+    = f.submit "Create"
+= link_to 'Back', comments_path

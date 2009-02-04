@@ -1,0 +1,4 @@
+%h2
+  New blog post
+= error_messages_for :post
+= render :partial => 'blog_form', :locals => { :url => blog_posts_path(@blog), :method => :post }
